@@ -1,0 +1,96 @@
+body {
+    margin: 30px;
+    color: white;
+    background: url(/img/bggaya.gif);
+}
+
+img.loading, img.checked, img.buttonbox {
+    vertical-align: middle;
+}
+
+a:link { color: #0000ff; }
+a:visited { color: #ff00ff; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
+
+/* table#answers {
+    border: 1px solid gray;
+    margin: 30px auto;
+} */
+
+table#answers td {
+    border: 1px solid gray;
+}
+
+#gayalogo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#gayalogo a img {
+    border-style: none;
+}
+
+#poweredbylogo {
+    text-align:right;
+}
+
+#linktop {
+    text-align:right;
+}
+
+#question .content {
+    font-size:larger;
+}
+
+/* img#buttonbox, img#processing, img#checked { */
+td.votebox {
+    text-align:center;
+    vertical-align:middle;
+}
+
+table#total_counts th {
+    width: 50%;
+    text-align:center;
+}
+
+table#total_counts td {
+    border: 1px solid gray;
+    white-space: nowrap;
+}
+
+table#total_counts td.gayarangers, td.citizens {
+    text-align:center;
+    font-size:x-large;
+}
+
+table#total_counts span.oogiri_name {
+    font-size:smaller;
+}
+
+table#total_counts td.count {
+    text-align:right;
+    font-size:smaller;
+}
+
+table#voted_counts td {
+    border: 1px solid gray;
+}
+
+table#voted_counts td.my_voted_count {
+    text-align:right;
+}
+
+table#total_counts tfoot {
+    font-size:xx-small;
+    text-align:right;
+}
+
+span.oogiri_hash {
+    font-size:xx-small;
+}
+
+div.display {
+     display: none;
+}
