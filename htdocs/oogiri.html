@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/oogiri.css" />
+    <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.json.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.format.js"></script> -->
+    <!-- <script type="text/javascript" src="js/jquery.countdown.js"></script> -->
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/oogiri.js"></script>
+    <title>Giricity Oogiri</title>
+  </head>
+  <body>
+    <div id="gayalogo">
+      <a href="http://anime.geocities.jp/gayaranger/index.html">
+	<img alt="http://anime.geocities.jp/gayaranger/gayalogo.png" src="/img/gayalogo.gif" />
+      </a>
+    </div>
+    <h1>ガヤレンジャーと勝負! ギリシティ大喜利</h1>
+    <div id="init_display" class="display">
+      <h2>開始画面</h2>
+      <h3>現在の結果</h3>
+      <p>現在の得票数は以下のようになっています。</p>
+      <table id="total_counts">
+	<caption>得票数</caption>
+	<thead>
+	  <tr>
+	    <th colspan="2">ガヤレンジャー</th>
+	    <th colspan="2">ギリシティ市民</th>
+	  </tr>
+	</thead>
+	<tfoot>
+	  <tr>
+	    <td colspan="4">未得票の方省略</td>
+	  </tr>
+	</tfoot>
+	<tbody>
+	  <tr>
+	    <td colspan="2" class="gayarangers"></td>
+	    <td colspan="2" class="citizens"></td>
+	  </tr>
+	  <tr>
+	    <td><span class="oogiri_name"></span><span class="oogiri_hash"></span></td>
+	    <td class="count"></td>
+	    <td><span class="oogiri_name"></span><span class="oogiri_hash"></span></td>
+	    <td class="count"></td>
+	  </tr>
+	</tbody>
+      </table>
+      <h3>ルールの説明</h3>
+      <p>ガヤレンジャーから出題されるお題で大喜利を5回戦行います。(5回戦の途中で抜けても同じお名前を使って再開することができます。)</p>
+      <p>ぼけを投稿した後、これまでの自分以外の投稿から選んで一票入れます。(5回戦が済むまで自分が誰に何票を入れたかはわかりません。)</p>
+      <p>ガヤレンジャーのメンバーに入れた票はガヤレンジャーに、それ以外はギリシティ市民の票として加算されます。</p>
+      <p>ガヤレンジャーのぼけがいくつ含まれているかはわかりません。</p>
+      <h3>スタート</h3>
+      <p>あなたも善良な市民としてギリシティの得票に貢献してください。</p>
+      <div>お名前:
+        <input type="text" name="init.oogiri_name" style="width: 200px;" class="oogiri_name" /> (#から後ろは<a href="http://ja.wikipedia.org/wiki/トリップ_(電子掲示板)">トリップ</a>文字列として変換されます)
+      </div>
+      <div>
+	<input type="button" name="init.submit" value="大喜利を開始する" alt="大喜利を開始する" class="submit" />
+	<img alt="processing" src="/img/loading.gif" class="loading" width="24" height="24" />
+      </div>
+      <p>(ご注意: 途中でブラウザ本体から「ページリロード」を行うと最初の画面に戻ってしまいます)</p>
+    </div>
+    <div id="answer_display" class="display">
+      <h2>投稿画面</h2>
+      <div id="question">
+	<div>出題者: <span class="oogiri_name"></span></div>
+	<div>お題: <span class="content"></span></div>
+      </div>
+      <!-- <div id="remaining">残り時間: <span id="time"></span></div> -->
+      <div id="answer">
+	<div>ぼけ: <input type="text" name="answer.content" style="width: 400px;" class="content" /></div>
+	<div>お名前: <span class="oogiri_name"></span><span class="oogiri_hash"></span></div>
+	<div>
+	  <input type="button" name="answer.submit" value="投稿する" alt="投稿する" class="submit" />
+	  <img alt="processing" src="/img/loading.gif" class="loading" width="24" height="24" />
+	</div>
+      </div>
+    </div>
+    <div id="vote_display" class="display">
+      <h2>投票画面</h2>
+      <div id="question">
+	<div>出題者: <span class="oogiri_name"></span></div>
+	<div>お題: <span class="content"></span></div>
+      </div>
+      <!-- <div id="remaining">残り時間: <span id="time"></span></div> -->
+      <div id="vote">
+	<table id="answers">
+	  <caption>投稿一覧</caption>
+	  <thead>
+	    <tr>
+	      <th width="95%">ぼけ</th>
+	      <th width="25">投票</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr class="answer">
+	      <td class="content"></td>
+	      <td class="votebox"><input type="radio" name="vote.answer_key" /></td>
+	    </tr>
+	  </tbody>
+	</table>
+	<div>
+	  <input type="button" name="vote.submit" value="投票する" alt="投票する" class="submit" />
+	  <img alt="processing" src="/img/loading.gif" class="loading" width="24" height="24" />
+	</div>
+      </div>
+    </div>
+    <div id="result_display" class="display">
+      <h2>投票結果</h2>
+      <p>おつかれさまでした！</p>
+      <table id="voted_counts">
+	<caption>投票一覧</caption>
+	<thead>
+	  <tr>
+	    <th>投稿者</th>
+	    <th>あなたの累計投票数</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <td><span class="oogiri_name"></span><span class="oogiri_hash"></span></td>
+	    <td class="my_voted_count"></td>
+	  </tr>
+	</tbody>
+      </table>
+      <!-- <div id="remaining">残り時間: <span id="time"></span></div> -->
+      <p>ギリシティの平和は守られましたでしょうか？</p>
+      <p><a href="/">最初の画面に戻る</a></p>
+    </div>
+    <div id="poweredbylogo">
+      <a href="https://appengine.google.com/">
+	<img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" />
+      </a>
+    </div>
+  </body>
+</html>
