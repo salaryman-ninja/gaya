@@ -2,8 +2,8 @@ Gaya
 
 * Install
 ** Download JavaScript files
-htdocs/js/jquery.cookie.js	http://plugins.jquery.com/node/1386/release
-htdocs/js/jquery.json.js	http://code.google.com/p/jquery-json/downloads/list
+- htdocs/js/jquery.cookie.js :: http://plugins.jquery.com/node/1386/release
+- htdocs/js/jquery.json.js :: http://code.google.com/p/jquery-json/downloads/list
 
 ** Upload to Google App Engine
 edit app.yaml
