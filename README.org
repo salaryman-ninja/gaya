@@ -6,5 +6,7 @@ Gaya
 - htdocs/js/jquery.json.js [[http://code.google.com/p/jquery-json/downloads/list]]
 
 ** Upload to Google App Engine
+#+BEGIN_SRC
 edit app.yaml
 appcfg.py update .
+#+END_SRC
